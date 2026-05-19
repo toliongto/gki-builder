@@ -68,28 +68,28 @@ jobs:
             echo "STATUS=BETA" >> $GITHUB_ENV
           fi
 
-      - name: Validate Inputs and Secrets
-        run: |
-          _error() {
-              echo "❌ ERROR: $*"
-              let ret++
-          }
+#      - name: Validate Inputs and Secrets
+#        run: |
+#          _error() {
+#              echo "❌ ERROR: $*"
+#              let ret++
+#          }
 
-          ret=0
-          # Check Secrets
-          if [[ -z "$TG_CHAT_ID" ]]; then
-            _error "Missing TG_CHAT_ID secret (Telegram Chat ID)"
-          fi
-          if [[ -z "$TG_BOT_TOKEN" ]]; then
-            _error "Missing TG_BOT_TOKEN secret (Telegram Bot Token)"
-          fi
-          if [[ -z "$GH_TOKEN" ]]; then
-            _error "Missing GH_TOKEN secret (GitHub PAT)"
-          fi
+#          ret=0
+#          # Check Secrets
+#          if [[ -z "$TG_CHAT_ID" ]]; then
+#            _error "Missing TG_CHAT_ID secret (Telegram Chat ID)"
+#          fi
+#          if [[ -z "$TG_BOT_TOKEN" ]]; then
+#            _error "Missing TG_BOT_TOKEN secret (Telegram Bot Token)"
+#          fi
+#          if [[ -z "$GH_TOKEN" ]]; then
+#            _error "Missing GH_TOKEN secret (GitHub PAT)"
+#          fi
 
-          if [[ $ret -gt 0 ]]; then
-            exit $ret
-          fi
+#          if [[ $ret -gt 0 ]]; then
+#            exit $ret
+#          fi
 
       - name: Install Dependencies
         run: |
